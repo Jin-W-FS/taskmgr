@@ -1,0 +1,13 @@
+A global task manager for allowing just a given count of tasks running
+at a time by semaphores
+
+use like this:
+
+    taskmgr -c 4	# create 4 resources
+    # bring up several tasks background but only 4 will run at a time
+    for x in ... ; do
+        taskmgr "shell-command $x" &
+    done
+    wait			# wait all background tasks end
+    taskmgr -d			# destory resources
+
